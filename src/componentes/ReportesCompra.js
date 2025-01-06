@@ -1,9 +1,8 @@
-// src/components/ReporteCompras.js
 import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 import { Chart, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-//import { Bar } from 'react-chartjs-2';
+
 
 // Registra las escalas y elementos necesarios
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);

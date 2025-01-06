@@ -58,74 +58,8 @@ function CatalogoNav(){
       handleBuscar();
     }
   };
-
-    /*const [producto, setProducto] = useState([]);
-
-  //const [busqueda, setBusqueda] = useState("");
-  const [globalFilter, setGlobalFilter] = useState(null);
-
-  useEffect(() => {
-    fetchProductos();
-  }, []);
-  
-  const fetchProductos = async () => {
-    const response = await axios.get("https://tp-back-production.up.railway.app/api/producto"/*,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("firebaseToken")}`,
-        },
-      }*)
-    setProducto(response.data);
-  };
-  
-  const {user} = useAuth()
-    useEffect(() => {
-      
-    }, [])
-
-  const handleBuscar = () => {
-    setProducto(
-      producto.filter((p) =>
-        p.nombre.toLowerCase().includes(busqueda.toLowerCase())
-      )
-    );*
-  };
-
-  ///////////
-  <div className="d-flex align-items-center" style={{ width: "55%" }}>
-      <input
-        className="form-control me-1"
-        type="search"
-        placeholder="Buscar productos"
-        aria-label="Search"
-        value={globalFilter}
-        onInput={(e) => setGlobalFilter(e.target.value)}
-        //onChange={(e) => setBusqueda(e.target.value)}
-      />
-      <button className="btn btn-success" onClick={handleBuscar}>
-        <i className="pi pi-search"></i>
-      </button>
-    </div>
-
-    ////
-    <Link className="nav-link text-success" to="/micart">
-        <i className="pi pi-cart-plus" style={{ fontSize: "1.5rem" }}></i>
-      </Link>
-
-      <li>
-            <Link className="nav-link text-light me-3" to="/suscribir">
-              <i className="pi pi-user me-1"></i> Suscribirse
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link className="nav-link" to="/reportescompra">Reports</Link>
-          </li>
-  */
-
-
     return (
-        <><div className="navbar navbar-dark bg-dark"> {/*fixed-top mb-5*/}
+        <><div className="navbar navbar-dark bg-dark"> 
   <div className="container-fluid">
     {/* Dropdown Button */}
     <div className="d-flex align-items-center" style={{ width: "25%" }}>

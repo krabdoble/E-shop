@@ -1,93 +1,6 @@
-/*import React, { createContext, useContext, useEffect, useState} from "react"
-import { onAuthStateChanged } from "firebase/auth"
-import { auth } from "../config/firebase"
-
-const AuthContext = createContext()
-
-
-export const AuthProvider = ({children}) => {
-
-    const [user, setUser] = useState(null) 
-    const [loading, setLoading] = useState(true)
-
-
-    useEffect(() => {
-        onAuthStateChanged(auth,(user) => {
-            setUser(user)
-            setLoading(false)
-        })
-    },[])
-
-    if (loading) {
-        return <h1>Cargando...</h1>
-    }
-
-    return (
-        <AuthContext.Provider value={{user}}>
-            {children}
-        </AuthContext.Provider>
-    )   
-
-}
-
-export const useAuth = () => {
-    return useContext(AuthContext)
-}
-*/
-/*
-import React, { createContext, useContext, useEffect, useState} from "react"
-import { onAuthStateChanged, signOut } from "firebase/auth"
-import { auth } from "../config/firebase"
-
-const AuthContext = createContext()
-
-
-export const AuthProvider = ({children}) => {
-
-    const [user, setUser] = useState(null) 
-    const [loading, setLoading] = useState(true)
-
-
-    useEffect(() => {
-        const unsubscribe =onAuthStateChanged(auth,(user) => {
-            setUser(user)
-            setLoading(false)
-        })
-        return unsubscribe;
-    },[])
-
-    const logout = async () => {
-        try {
-          await signOut(auth);
-          setUser(null);
-          localStorage.removeItem("firebaseToken");
-        } catch (error) {
-          console.error("Error al cerrar sesión:", error);
-        }
-      };
-
-    if (loading) {
-        return <h1>Cargando...</h1>
-    }
-
-    return (
-        <AuthContext.Provider value={{user, logout}}>
-            {children}
-        </AuthContext.Provider>
-    )   
-
-}
-
-export const useAuth = () => {
-    return useContext(AuthContext)
-}
-*/
-
 import React, { createContext, useContext, useEffect, useState} from "react"
 import { auth, googleProvider } from "../config/firebase";
 import { onAuthStateChanged,signInWithPopup, signOut } from "firebase/auth"
-//import { auth } from "../config/firebase"
-//import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AuthContext = createContext()
@@ -95,17 +8,6 @@ export const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null) 
     const [loading, setLoading] = useState(true)
-    //const navigate = useNavigate();
-
-    // Comprobar si el usuario está autenticado al cargar el componente
- /* useEffect(() => {
-    const token = localStorage.getItem("firebaseToken");
-
-    if (token) {
-      // Verificar token con el backend (opcional)
-      navigate("/home");
-    }
-  }, [navigate]);*/
 
     const signInWithGoogle = async () => {
       try {
@@ -131,8 +33,7 @@ export const AuthProvider = ({children}) => {
           localStorage.setItem("userId", response.data.usuario.id); // Guarda el ID del usuario
           setUser({ ...user, id: response.data.usuario.id }); // Actualiza el contexto
           console.log("Usuario id es ", response.data.usuario.id)
-          //setUser(user);
-          //navigate("/home");
+          
         } else {
           console.error("Error en la autenticación del backend:", response.data);
           logout(); // Deslogear si el backend falla
@@ -166,7 +67,7 @@ export const AuthProvider = ({children}) => {
       };
 
     if (loading) {
-        return <h1>Cargando...</h1>
+        return <h1>Loading...</h1>
     }
 
     return (

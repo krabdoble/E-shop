@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-//import CatalogoNav from "./CatalogoNav.";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../providers/AuthProvider"
 
 const MiCart = () => {
   const [carrito, setCarrito] = useState([]);
   const { actualizarTotalProductos } = useCart();
-  //const [totalProductos, setTotalProductos] = useState(0);
   const [suma_total, setTotal] = useState(0);
   const [error, setError] = useState('');
 
@@ -78,48 +76,6 @@ const MiCart = () => {
     }
   };
 
-  /* const confirmarCompra = async () => {
-        for (const item of carrito) {
-            try {
-                await axios.post('http://localhost:3000/api/pedido', {
-                    nombre: item.nombre,
-                    idProducto: item.id_producto,
-                    talle: item.talle,
-                    cantidad: item.cantidad,
-                    precio: item.precioVenta,
-                });
-            } catch (error) {
-                console.error('Error al confirmar compra:', error);
-            }
-        }
-        alert('Compra confirmada');
-        setCarrito([]);
-    };
-
-    <div class="input-group">
-        <span class="input-group-text">First and last name</span>
-        <input type="text" aria-label="First name" class="form-control" placeholder="First name" required/>
-        <input type="text" aria-label="Last name" class="form-control" placeholder="Last name" required/>
-      </div>
-      <div class="input-group">
-        <span class="input-group-text">Address</span>
-        <input type="text" aria-label="Street" class="form-control" placeholder="Street" required/>
-        <input type="text" aria-label="Zipcode" class="form-control" placeholder="Zipcode" required/>
-        <input type="text" aria-label="City" class="form-control" placeholder="City" required/>
-      </div>
-      <div class="input-group">
-        <span class="input-group-text">Contacto</span>
-        <input type="email" aria-label="Email" class="form-control" placeholder="Email" required/>
-        <input type="text" aria-label="Telephone" class="form-control" placeholder="Telephone" required/>
-      </div>
-
-      ///
-      <p>Total de productos: {totalProductos}</p>
-
-      <p>Total de productos: {carrito.length}</p>
-    
-    */
-
   return (
     <>
     
@@ -134,7 +90,6 @@ const MiCart = () => {
                     width="100%"
                     height="200px"
                     src={`https://tp-back-production.up.railway.app/uploads/${producto.Producto.imagen}`}
-                    //className="card-img-top"
                     alt={producto.Producto.nombre}
                   />
                 </div>

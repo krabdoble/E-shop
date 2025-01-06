@@ -7,9 +7,6 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-//import API_URL from "./ApiUrl";
-
-
 
 function PedidoList(){
     const [pedido, setPedido] = useState([]);

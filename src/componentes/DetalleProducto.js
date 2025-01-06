@@ -1,52 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-//import CatalogoNav from "./CatalogoNav.";
-/*import NavCell from "./NavCell";
-import NavCompu from "./NavCompu";
-import { Dropdown } from "primereact/dropdown";*/
-
-//import { useNavigate } from 'react-router-dom';
-//import API_URL from "./ApiUrl";
 
 function DetalleProducto() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [talleSeleccionado, setTalleSeleccionado] = useState('');
   const [cantidadSeleccionado, setCantidadSeleccionado] = useState('1');
-  /* const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-
-
-   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768); // Cambiar el valor según el breakpoint deseado
-    };
-
-    // Configurar el listener de resize
-    handleResize(); // Verificar inicialmente
-    window.addEventListener("resize", handleResize);
-
-    // Limpiar el listener al desmontar
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);*/
-  /*const [talleSeleccionado, setTalleSeleccionado] = useState("");
-  const talles = [
-    { name: "XS", code: "XS" },
-    { name: "S", code: "S" },
-    { name: "M", code: "M" },
-    { name: "L", code: "L" },
-    { name: "XL", code: "XL" },
-    { name: "XXL", code: "XXL" },
-  ];
-  const [cantidadSeleccionado, setCantidadSeleccionado] = useState(1);
-  const cantidad = [
-    { name: "1", code: "1" },
-    { name: "2", code: "2" },
-    { name: "3", code: "3" },
-    { name: "4", code: "4" },
-    { name: "5", code: "5" },
-  ];*/
+  
 
   useEffect(() => {
     const fetchProducto = async () => {
@@ -67,7 +28,7 @@ function DetalleProducto() {
   if (!product) {
     return <div>Loading...</div>;
   };
-  //////////////////
+  
 
 
   const agregarACarrito = async () => {
@@ -109,7 +70,7 @@ function DetalleProducto() {
             width="100%"
             height="100%"
             src={`https://tp-back-production.up.railway.app/uploads/${product.imagen}`}
-            //className="card-img-top"
+            
             alt={product.id}
           />
         </div>
@@ -197,40 +158,3 @@ function DetalleProducto() {
 }
 
 export default DetalleProducto;
-
-
-/*
-
-            
-
-                    <div className="field">
-              <label htmlFor="cantidadseleccionado" className="font-bold">
-                Cantidad
-              </label>
-              <Dropdown
-                value={cantidadSeleccionado}
-                required
-                onChange={(e) => setCantidadSeleccionado(e.value)}
-                options={cantidad}
-                optionLabel="name"
-                placeholder="cantidad..."
-                className="w-full md:w-14rem"
-              />
-            </div>
-
-
-            <div className="field">
-            <label htmlFor="talleseleccionado" className="font-bold">
-              Talle
-            </label>
-            <Dropdown
-              value={talleSeleccionado}
-              required
-              onChange={(e) => setTalleSeleccionado(e.value)}
-              options={talles}
-              optionLabel="name"
-              placeholder="talle..."
-              className="w-full md:w-14rem"
-            />
-          </div>
-            */

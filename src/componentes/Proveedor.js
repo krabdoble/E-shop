@@ -5,8 +5,6 @@ import { InputText } from 'primereact/inputtext';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import axios from 'axios';
-//import  '../componentes/estilos.css';
-//import API_URL from "./ApiUrl";
 
 export default function Proveedor() {
     const [visible, setVisible] = useState(false);

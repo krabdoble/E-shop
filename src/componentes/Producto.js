@@ -8,14 +8,6 @@ import axios from "axios";
 import { InputIcon } from "primereact/inputicon";
 import { IconField } from "primereact/iconfield";
 import  '../componentes/estilos.css';
-
-
-/*
-onRowClick={(event)=>{
-                console.log(event.data)
-                window.location.href=`/detalle/${event.data.id}`;
-            }}
-*/
 import { useNavigate } from 'react-router-dom';
 
 function Producto() {
@@ -66,23 +58,6 @@ function Producto() {
     );
     setUsers(response.data);
   };
-
-  /////
-  /*const fetchImage = async (imageName) => {
-    const response = await fetch(`https://tp-back-production.up.railway.app/uploads/${imageName}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("firebaseToken")}`,
-      },
-    });
-    
-    if (response.ok) {
-      const blob = await response.blob();
-      return URL.createObjectURL(blob); // Convertir la respuesta a una URL que se pueda usar en el src
-    } else {
-      console.error('No se pudo obtener la imagen');
-    }
-  };*/
-  /////
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -312,7 +287,6 @@ function Producto() {
           body={(data) => (
             <img
               src={`https://tp-back-production.up.railway.app/uploads/${data.imagen}`}
-              //src={fetchImage(data.imagen)}
               alt={data.nombre}
               width="100"
             />
