@@ -1,9 +1,10 @@
 import React from 'react';
+import './home.css';
 
 
 function Home(){
     return(
-        <div className='text-center'>
+        <div className="home"><div className='text-center'>
             <h1>Project Content</h1>
             <h2>Main page -- Catalog</h2>
             <h4>.- Login with firebase</h4>
@@ -23,7 +24,7 @@ function Home(){
             <h4>  .-Bootstrap</h4>
             <h4>  .-Primereact</h4>
             
-        </div>
+        </div></div>
     )
 }
 
